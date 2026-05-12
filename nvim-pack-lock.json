@@ -154,6 +154,10 @@
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "git@github.com:stevearc/oil.nvim"
     },
+    "opencode.nvim": {
+      "rev": "0dd88243b151b25e291e714d572d303a694b5f7c",
+      "src": "git@github.com:nickjvandyke/opencode.nvim"
+    },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "git@github.com:nvim-lua/plenary.nvim"

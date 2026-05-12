@@ -138,7 +138,7 @@ require('fidget').setup {}
 vim.pack.add { gh 'nvim-lualine/lualine.nvim' }
 require('lualine').setup {
   options = {
-    theme = 'catppuccin',
+    theme = 'catppuccin-mocha',
     component_separators = '|',
     section_separators = '',
   },
