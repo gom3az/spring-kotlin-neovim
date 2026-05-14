@@ -12,7 +12,6 @@ Modular structure - config split into lua/config/
 
 require('config.foundation')
 require('config.autocmds')
-require('config.keymaps')
 require('config.plugins')
 require('config.ui')
 require('config.search')

@@ -16,3 +16,7 @@ require('conform').setup {
     yaml = { "prettierd" },
   },
 }
+
+vim.keymap.set({ "n", "x" }, "<leader>cf", function()
+  require("conform").format({ async = true })
+end, { desc = "[C]onform [F]ormat" })

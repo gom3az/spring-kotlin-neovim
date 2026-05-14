@@ -9,3 +9,12 @@ require('neotest').setup {
 }
 
 require('lint').linters_by_ft = {}
+
+vim.keymap.set("n", "<leader>tt", '<cmd>lua require("neotest").run.run()<CR>', { desc = "[T]est [T]run current" })
+vim.keymap.set(
+  "n",
+  "<leader>tf",
+  '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
+  { desc = "[T]est [F]ile" }
+)
+vim.keymap.set("n", "<leader>ts", '<cmd>lua require("neotest").summary.toggle()<CR>', { desc = "[T]est [S]ummary" })

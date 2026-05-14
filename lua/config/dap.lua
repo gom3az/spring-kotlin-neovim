@@ -10,6 +10,12 @@ vim.pack.add {
 
 require('dapui').setup {}
 
+vim.keymap.set("n", "<leader>dt", "<cmd>DapToggleBreakpoint<CR>", { desc = "[D]ebug [T]oggle breakpoint" })
+vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>", { desc = "[D]ebug [C]ontinue" })
+vim.keymap.set("n", "<leader>di", "<cmd>DapStepInto<CR>", { desc = "[D]ebug [I]nto" })
+vim.keymap.set("n", "<leader>do", "<cmd>DapStepOver<CR>", { desc = "[D]ebug [O]ver" })
+vim.keymap.set("n", "<leader>dO", "<cmd>DapStepOut<CR>", { desc = "[D]ebug Out" })
+
 local dap = require 'dap'
 dap.adapters.kotlin = {
   type = 'executable',
