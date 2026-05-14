@@ -151,5 +151,18 @@ require("lualine").setup({
     component_separators = "|",
     section_separators = "",
   },
+  sections = {
+    lualine_c = {
+      {
+        function()
+          local rec = vim.fn.reg_recording()
+          if rec ~= '' then
+            return '📍 recording @' .. rec
+          end
+          return ''
+        end,
+      },
+    },
+  },
 })
 

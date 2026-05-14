@@ -8,7 +8,7 @@ vim.g.have_nerd_font = false
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.mouse = 'a'
-vim.o.showmode = false
+vim.o.showmode = true
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 vim.o.breakindent = true
 vim.o.undofile = true
@@ -27,6 +27,14 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+vim.keymap.set('n', 'q', function()
+  if vim.fn.reg_recording() == '' then
+    vim.cmd('normal! qq')
+  else
+    vim.cmd('normal! q')
+  end
+end, { desc = 'Macro recording' })
 
 vim.diagnostic.config {
   update_in_insert = false,
