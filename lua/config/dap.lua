@@ -40,8 +40,6 @@ dap.configurations.kotlin = {
         :sub(2, -1)
     end,
     projectRoot = '${workspaceFolder}',
-    jsonLogFile = '',
-    enableJsonLogging = false,
   },
   {
     type = 'kotlin',

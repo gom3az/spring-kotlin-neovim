@@ -69,6 +69,10 @@
       "rev": "ff84e6e1608b24773f1b73cd4182e0bcf2b3d637",
       "src": "git@github.com:nvim-neo-tree/neo-tree.nvim"
     },
+    "neodev.nvim": {
+      "rev": "46aa467dca16cf3dfe27098042402066d2ae242d",
+      "src": "git@github.com:folke/neodev.nvim"
+    },
     "neogit": {
       "rev": "395ac481e197784e410b59b987fadaf9e7481df1",
       "src": "git@github.com:NeogitOrg/neogit"

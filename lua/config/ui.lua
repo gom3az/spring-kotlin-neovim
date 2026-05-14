@@ -66,8 +66,6 @@ require("mini.pairs").setup()
 
 vim.pack.add({ gh("nvim-neo-tree/neo-tree.nvim") })
 vim.pack.add({ gh("nvim-tree/nvim-web-devicons") })
-vim.cmd.packadd("nui.nvim")
-vim.cmd.packadd("plenary.nvim")
 require("neo-tree").setup({
   close_if_last_window = false,
   enable_diagnostics = true,
@@ -84,7 +82,7 @@ require("neo-tree").setup({
     position = "left",
     width = 40,
   },
-  filesystem = {
+filesystem = {
     follow_current_file = {
       enabled = true,
     },
@@ -96,19 +94,10 @@ vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "[E]xplorer
 
 vim.pack.add({ gh("akinsho/bufferline.nvim") })
 require("bufferline").setup({})
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    local colors = require("catppuccin.api.colors").get_colors("mocha")
-    require("bufferline").setup({
-      highlights = require("catppuccin.special.bufferline").get_theme(),
-    })
-  end,
-})
 
 vim.keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<CR>", { desc = "[B]uffer [N]ext" })
 vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineCyclePrev<CR>", { desc = "[B]uffer [P]rev" })
 vim.keymap.set("n", "<leader>bd", "<cmd>BufferLineCloseOthers<CR>", { desc = "[B]uffer [D]elete others" })
-vim.keymap.set("n", "<leader>bdo", "<cmd>BufferLineCloseOthers<CR>", { desc = "[B]uffer [D]elete [O]thers" })
 vim.keymap.set("n", "<leader>bb", "<cmd>BufferLinePick<CR>", { desc = "[B]uffer [P]ick" })
 vim.keymap.set("n", "<leader>bll", "<cmd>BufferLineMoveNext<CR>", { desc = "[B]uffer Move [L]eft" })
 vim.keymap.set("n", "<leader>bhh", "<cmd>BufferLineMovePrev<CR>", { desc = "[B]uffer Move [H]left" })

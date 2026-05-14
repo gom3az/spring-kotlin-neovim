@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd('FileType', {
     if vim.tbl_contains(installed, language) then
       treesitter_attach(buf, language)
     elseif vim.tbl_contains(available_parsers, language) then
-      require('nvim-treesitter').install(language):await(function() treesitter_attach(buf, language) end)
+      require('nvim-treesitter').install(language, function() treesitter_attach(buf, language) end)
     end
   end,
 })

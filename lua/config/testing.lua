@@ -8,8 +8,6 @@ require('neotest').setup {
   adapters = {},
 }
 
-require('lint').linters_by_ft = {}
-
 vim.keymap.set("n", "<leader>tt", '<cmd>lua require("neotest").run.run()<CR>', { desc = "[T]est [T]run current" })
 vim.keymap.set(
   "n",

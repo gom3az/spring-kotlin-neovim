@@ -1,10 +1,18 @@
 local gh = require('utils').gh
 
 vim.pack.add {
+  gh 'folke/neodev.nvim',
   gh 'neovim/nvim-lspconfig',
   gh 'mason-org/mason.nvim',
   gh 'mason-org/mason-lspconfig.nvim',
 }
+
+require('neodev').setup({
+  library = {
+    enabled = true,
+    plugins = true,
+  },
+})
 
 require('mason').setup {}
 
