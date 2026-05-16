@@ -1,3 +1,3 @@
-local function gh(repo) return 'git@github.com:' .. repo end
+local function gh(repo) return 'https://github.com/' .. repo end
 
 return { gh = gh }

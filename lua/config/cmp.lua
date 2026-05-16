@@ -1,24 +1,18 @@
 local gh = require('utils').gh
 
-vim.pack.add { gh 'hrsh7th/nvim-cmp' }
-vim.pack.add { gh 'hrsh7th/cmp-nvim-lsp' }
-vim.pack.add { gh 'hrsh7th/cmp-path' }
+vim.pack.add { { src = gh 'L3MON4D3/LuaSnip', version = vim.version.range '2.*' } }
+require('luasnip').setup {}
 
-local cmp = require 'cmp'
+vim.pack.add { gh 'rafamadriz/friendly-snippets' }
+require('luasnip.loaders.from_vscode').lazy_load()
 
-cmp.setup {
-  mapping = cmp.mapping.preset.insert {
-    ['<C-y>'] = cmp.config.disable,
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm { select = true },
-    ['<S-tab>'] = cmp.mapping.select_prev_item(),
-    ['<tab>'] = cmp.mapping.select_next_item(),
-  },
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'path' },
-  }),
+vim.pack.add { { src = gh 'saghen/blink.cmp', version = vim.version.range '1.*' } }
+require('blink.cmp').setup {
+  keymap = { preset = 'default' },
+  appearance = { nerd_font_variant = 'mono' },
+  completion = { documentation = { auto_show = false, auto_show_delay_ms = 500 } },
+  sources = { default = { 'lsp', 'path', 'snippets' } },
+  snippets = { preset = 'luasnip' },
+  fuzzy = { implementation = 'lua' },
+  signature = { enabled = true },
 }

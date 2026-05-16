@@ -63,6 +63,14 @@ vim.cmd.colorscheme("catppuccin")
 
 vim.pack.add({ gh("echasnovski/mini.nvim") })
 require("mini.pairs").setup()
+require("mini.ai").setup({
+  mappings = {
+    around_next = "aa",
+    inside_next = "ii",
+  },
+  n_lines = 500,
+})
+require("mini.surround").setup()
 
 vim.pack.add({ gh("nvim-neo-tree/neo-tree.nvim") })
 vim.pack.add({ gh("nvim-tree/nvim-web-devicons") })
@@ -82,7 +90,7 @@ require("neo-tree").setup({
     position = "left",
     width = 40,
   },
-filesystem = {
+  filesystem = {
     follow_current_file = {
       enabled = true,
     },
@@ -165,4 +173,3 @@ require("lualine").setup({
     },
   },
 })
-

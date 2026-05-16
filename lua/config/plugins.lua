@@ -1,8 +1,3 @@
-local git_urls = {
-  ['github.com'] = 'git@github.com:%s',
-}
-vim.env.GIT_URL_BASE = 'git@github.com:'
-
 local function run_build(name, cmd, cwd)
   local result = vim.system(cmd, { cwd = cwd }):wait()
   if result.code ~= 0 then
@@ -22,6 +17,11 @@ vim.api.nvim_create_autocmd('PackChanged', {
 
     if name == 'telescope-fzf-native.nvim' and vim.fn.executable 'make' == 1 then
       run_build(name, { 'make' }, ev.data.path)
+      return
+    end
+
+    if name == 'LuaSnip' then
+      if vim.fn.has 'win32' ~= 1 and vim.fn.executable 'make' == 1 then run_build(name, { 'make', 'install_jsregexp' }, ev.data.path) end
       return
     end
 
