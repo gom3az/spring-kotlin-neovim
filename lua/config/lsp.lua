@@ -1,18 +1,10 @@
 local gh = require('utils').gh
 
 vim.pack.add {
-  gh 'folke/neodev.nvim',
   gh 'neovim/nvim-lspconfig',
   gh 'mason-org/mason.nvim',
   gh 'mason-org/mason-lspconfig.nvim',
 }
-
-require('neodev').setup({
-  library = {
-    enabled = true,
-    plugins = true,
-  },
-})
 
 require('mason').setup {}
 
@@ -62,7 +54,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
     map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
     map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    map('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client:supports_method('textDocument/documentHighlight', event.buf) then

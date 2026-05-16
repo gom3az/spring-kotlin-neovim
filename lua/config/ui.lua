@@ -38,7 +38,6 @@ require("catppuccin").setup({
   integrations = {
     aerial = true,
     alpha = true,
-    cmp = true,
     dashboard = true,
     flash = true,
     fzf = true,
@@ -71,6 +70,18 @@ require("mini.ai").setup({
   n_lines = 500,
 })
 require("mini.surround").setup()
+require("mini.starter").setup({
+  evaluate_single = true,
+  items = {
+    { name = "Find Files", action = function() require("telescope.builtin").find_files() end, section = "Telescope" },
+    require("mini.starter").sections.recent_files(15, false),
+  },
+  content_hooks = {
+    require("mini.starter").gen_hook.adding_bullet(),
+    require("mini.starter").gen_hook.indexing("all"),
+    require("mini.starter").gen_hook.aligning("center", "center"),
+  },
+})
 
 vim.pack.add({ gh("nvim-neo-tree/neo-tree.nvim") })
 vim.pack.add({ gh("nvim-tree/nvim-web-devicons") })
